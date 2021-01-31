@@ -24,9 +24,9 @@ def post():
 
     doc = ' '.join([word for word in text.split() if word not in stop_words])
 
-    sent_analysis = SentimentIntensityAnalyzer()
-    pol = sent_analysis.polarity_scores(text=doc)
-    compound = round((1 + pol['compound'])/2, 2)
+    sentiment_intensity_analysis = SentimentIntensityAnalyzer() #init the sentiment analyzer
+    score = sentiment_intensity_analysis.polarity_scores(text=doc)
+    compound = round((1 + score['compound'])/2, 2)
 
     return render_template('home.html', final=compound, text=text)
 
