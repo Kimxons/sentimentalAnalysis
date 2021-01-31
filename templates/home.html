@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    <div class="jumbotron jumbotron-fluid text-center">
+        <div class="container">
+          <h1 class="display-6">A Recommender System - Based on Sentimental Analysis</h1>
+
+        <form method="post" class="form" id="pasteForm">
+        	<label for="post">Paste or Upload a document to analyse it</label>
+	        <textarea class="form-control" rows="6" cols="600" name="text" form="pasteForm" required="" ></textarea><br><br>
+
+	        <button class="btn btn-primary">Analyze</button>
+	    </form>
+        
+	    {% if final %}
+
+	    <div>
+	        <h2>Analysis: </h2> <br>
+	        '{{ text }}' <h2>is {{ final }}% positive !</h2>
+	        {% else %}
+	        <p></p>
+        
+        {% endif %}
+	    
+	    </div>
+
+	    <span>&copy; Holla</span>
+        
+        </div>
+    </div>
+
+{% endblock %}
